@@ -1,5 +1,9 @@
 'use strict';
 
+var dbUrl = process.env.DATABASE_URL.split("/");
+var dbName = dbUrl.pop();
+dbUrl = dbUrl.join("/");
+
 // Production specific configuration
 // =================================
 module.exports = {
@@ -19,5 +23,12 @@ module.exports = {
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
             'mongodb://localhost/grouphack'
-  }
+  },
+
+  database: {
+    url: dbUrl,
+    dbName: dbName,
+    username: undefined,
+    password: undefined
+  },
 };
