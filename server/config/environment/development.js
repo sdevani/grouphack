@@ -9,7 +9,8 @@ module.exports = {
   },
 
   database: {
-    url: 'postgresql://localhost:5432/grouphack-dev',
+    url: 'localhost:5432',
+    dbName: 'grouphack-dev',
     username: undefined,
     password: undefined
   },

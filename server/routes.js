@@ -10,14 +10,14 @@ var Sequelize = require('sequelize');
 
 module.exports = function(app, db) {
 
-  var Project = db.define('Counter', {
-    id: Sequelize.INTEGER
-  });
-
+  var Counter = db.define('counter', {});
   app.get('/', function(req, res) {
-    res.send("hello");
-    // Counter.create().then(function(counter) {
-    // });
+    // res.send("hello");
+    // console.log("hello");
+    // res.redirect('http://www.google.com');
+    Counter.create({}).then(function(counter) {
+      res.send({message: "hi", id: counter.get('id')});
+    });
   });
 
   // Insert routes below

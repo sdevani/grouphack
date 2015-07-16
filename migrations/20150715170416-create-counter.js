@@ -9,11 +9,17 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    return queryInterface.createTable('counters', {id:
-      {
+    return queryInterface.createTable('counters', {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
       }
     });
   },
