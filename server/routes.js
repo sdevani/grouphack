@@ -17,6 +17,9 @@ module.exports = function(app, db) {
     // res.redirect('http://www.google.com');
     Counter.create({}).then(function(counter) {
       res.send({message: "hi", id: counter.get('id')});
+    },
+    function() {
+      res.send({message: "Something goofed up", args: arguments});
     });
   });
 
